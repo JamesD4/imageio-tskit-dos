@@ -1,0 +1,2 @@
+title: Technical Analysis of DoS Condition in Apple's iOS/macOS iWork Suite
+description: This document presents an analysis of two interrelated logic bugs that lead to a Denial-of-Service (DoS) condition in the iWork Suite (Keynote, Pages, Numbers) on both macOS and iOS. The issues have been identified within the ImageIO (Bug 1) and TSKit (Bug 2) frameworks.
