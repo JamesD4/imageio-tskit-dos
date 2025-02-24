@@ -70,7 +70,7 @@ According to Apple’s documentation, `CGImageSourceCreateImageAtIndex()` is exp
 
 Bug 2 affects `TSKit.framework` when handling animated GIFs. The issue occurs in `-[TSKAnimatedGIFFrame image]`, where `CGImageSourceCreateImageAtIndex()` returns a `NULL` pointer that is passed to `CFAutorelease()` without validation, leading to a crash.
 
-This happens because `CFAutorelease()` expects a valid Core Foundation object, as it adds the object to an autorelease pool for deferred deallocation. Since `NULL` isn't a valid Core Foundation object pointer, Core Foundation triggers an `assert()`, causing a controlled crasht, rather than potentially creating a state that could possibly enable malicious memory corruption to occur.
+This happens because `CFAutorelease()` expects a valid Core Foundation object, as it adds the object to an autorelease pool for deferred deallocation. Since `NULL` isn't a valid Core Foundation object pointer, Core Foundation triggers an `assert()`, causing a controlled crash, rather than potentially creating a state that could possibly enable malicious memory corruption to occur.
 
 The following call-graph highlights the faulty implementation:
 
